@@ -1,6 +1,7 @@
 import random
 from slyfox import slyfox
 from grumpy_bull import grumpy_bull
+from hangman import game_of_hangman
 
 random.seed()
 
@@ -39,7 +40,7 @@ def factorial(num):
         return 1
     return num * factorial(num - 1)
 
-def urethral_insertion(num):
+def fruit_application(num):
     adverbs = ["swiftly", "skillfully", "passionately", "deftly", "suddenly", "smoothly", "quickly", "intensely"]
     verbs = ["pitched", "rammed", "crushed", "drove", "hammered", "packed", "slid", "manouvered", "pumped"]
     adjectives = ["rotten", "stinking", "spikey", "semi-fermented", "massive", "fly-infested", "dripping", "mouldy", "glowing", "humongous", "infected", "oddly-purple"]
@@ -54,7 +55,7 @@ def urethral_insertion(num):
         pronoun = "them"
     return f"Fiendish Hog takes {num} {adjective} {tobject} and {adverb} {verb} {pronoun} at your face."
 
-def urethral_sensation(num):
+def sensation(num):
     if num < 0:
         return (True, "You feel overwhelmed by the stench of rotten fruit. You collapse to your badger-knees.")
     elif num == 0:
@@ -99,16 +100,16 @@ def pensley():
     print("Fiendish Hog addresses the room: 'I will demonstrate the factorial function, which is often implemented in a recursive manner'. Fiendish Hog walks over to a shopping trolley full of rotten fruit.")
     fac = random.randrange(-1, 21)
     if fac == -1:
-        print(urethral_insertion(fac))
-        print(urethral_sensation(fac)[1])
+        print(fruit_application(fac))
+        print(sensation(fac)[1])
         print("GAME OVER")
         return
     else:
         count = 1
         for i in range(0, fac):
             count *= (i + 1)
-            sensation = urethral_sensation(count)
-            print(urethral_insertion(count) + " " + sensation[1])
+            sensation = sensation(count)
+            print(fruit_application(count) + " " + sensation[1])
             if sensation[0] == True:
                 print("GAME OVER")
                 return
@@ -126,6 +127,14 @@ def farmer_granger():
     print("He sees a clear trail from your den to where you stand, thus revealing your den's location. He"
     "takes the opportunity; sneaking to your den and stealing all your apples, must and cider.\n GAME OVER")
 
+def doormouse_dave():
+    print("You crawl through the tunnel and find yourself in the burrow of Dormouse-Dave.\n\n HELLO FINE BADGER! He exitedly shouts. After apples no doubt? Lets play a game, if you win, I'll help.")
+    game_result = game_of_hangman()
+    if game_result == 'win':
+        print("Congraulations badger. Follow this tunnel and it shall lead to that which you seek most.\n You enter the tunnel.")
+        orchard()
+    else:
+        print("Dormouse-Dave looks dissapointed. As you have lost this game of hangman, the natural result is that the entire county is paved over to build a new car park. No apples for you. GAME OVER.")
 
 """
 Main console run
@@ -143,7 +152,7 @@ if woods_area == 'rolling hills':
             "In the mound you find Mrs Scrumpy going over your tax returns\n'So there you are you no good work dodger! Been off cider hunting again  no doubt? Well you can forget about it until you've done these tax returns'.\nGAME OVER")
     elif action_one == "move on":
         action_two = input(
-            "You take a left and shuffle through a hole into the largest hill. You enter a cross-roads of tunnels. There are multiple ways to go, each with its scent; you must pick one to follow. Type 'apple-scented tunnel', 'Pear scented-tunnel', 'cigar-scented tunnel', 'sweat-scented tunnel' or 'pencil-scented tunnel'.\n")
+            "You take a left and shuffle through a hole into the largest hill. You enter a cross-roads of tunnels. There are multiple ways to go, each with its scent; you must pick one to follow. Type 'apple-scented tunnel', 'Pear scented-tunnel', 'cigar-scented tunnel', 'sweat-scented tunnel', 'hemp-scented tunnel' or 'pencil-scented tunnel'.\n")
         action_two = action_two.lower()
         if action_two == 'apple-scented tunnel':
             orchard()
@@ -156,6 +165,8 @@ if woods_area == 'rolling hills':
             grumpy_bull()
         elif action_two == 'pencil-scented tunnel':
             pensley()
+        elif action_two == 'hemp-scented tunnel':
+            doormouse_dave()
         else:
             did_not_enter("a tunnel")
 
