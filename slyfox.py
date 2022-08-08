@@ -2,6 +2,9 @@ import random
 
 random.seed()
 
+def orchard():
+    print("You find yourself in an orchard. Apple trees of every type, from the sourest of crab apples to the sweetest of Fuji, even a few pear trees thrown in to mix it up. You snuffle with delight at this bountiful hoard, gorging yourself and leaving with all you can carry.\n Congratulations, YOU WIN.")
+
 def slyfox():
 
     rock = '''
